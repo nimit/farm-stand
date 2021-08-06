@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products</title>
+  </head>
+  <body>
+    <% if (filter['category'] == undefined) { %>
+    <h1>The Products</h1>
+    <% } else { %>
+    <h1>
+      All <%=filter['category'][0].toUpperCase() +
+      filter['category'].substring(1)%>
+    </h1>
+    <% } %>
+    <ul>
+      <% for(let product of products) { %>
+      <li>
+        <b><%= product.name %></b> - $<%= product.price %>
+        <a href="/product/<%=product._id%>">Details</a>
+        <a href="/product/<%=product._id%>/delete">Delete</a>
+      </li>
+      <% } %>
+    </ul>
+    <!-- <a href="/products/new">Add a product</a> -->
+    <% if (filter['category'] != undefined) { %>
+    <a href="/products">All Products</a>
+    <%}%>
+  </body>
+</html>

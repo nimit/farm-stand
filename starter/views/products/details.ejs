@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Detail Page</title>
+  </head>
+  <body>
+    <h1><%= product.name %></h1>
+    <ul>
+      <li>Price: $<%= product.price %></li>
+      <li>
+        <% const category = product.category.substring(0, 1).toUpperCase() +
+        product.category.substring(1) %> Category:
+        <a href="/products?category=<%=category%>"><%=category%></a>
+      </li>
+      <li>
+        <a href="/farm/<%= product.farm._id %>"><%= product.farm.name %></a>
+      </li>
+      <br />
+      <a href="/products">All Products</a>
+      <a href="/product/<%=product._id%>/edit">Edit</a>
+    </ul>
+  </body>
+</html>
